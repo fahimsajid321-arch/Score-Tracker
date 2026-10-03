@@ -47,9 +47,10 @@ class Players:
         self.Waseem = list()
         self.Usama = list()
         self.Waqar = list()
+        self.Wahab = list()
 
     # Setting =None allows you to stop passing an argument once someone is out
-    def add_score(self, Faheem=None, Waseem=None, Usama=None, Waqar=None):
+    def add_score(self, Faheem=None, Waseem=None, Usama=None, Waqar=None, Wahab=None):
         # Faheem
         if Faheem is not None and sum(self.Faheem) < 100:
             self.Faheem.append(Faheem)
@@ -94,7 +95,18 @@ class Players:
         else:
             Waqar = "Thrown out"
 
-        Round = [Faheem, Waseem, Usama, Waqar]
+        # Wahab
+        if Wahab is not None and sum(self.Wahab) < 100:
+            self.Wahab.append(Wahab)
+            if sum(self.Wahab) >= 100:
+                print("Wahab Thrown Out")
+                Wahab = "Thrown out"
+            else:
+                print(f"Wahab: {self.Wahab} : Total = {sum(self.Wahab)}")
+        else:
+            Wahab = "Thrown out"
+
+        Round = [Faheem, Waseem, Usama, Waqar, Wahab]
         print(f"Round Score: {Round}\n")
 
 
